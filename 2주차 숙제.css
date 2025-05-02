@@ -24,9 +24,15 @@
     padding: 45px;
     text-align:start;
     color:black;
+    font-size: 40px;
+
 
 }
 
+.any{
+
+text-align: end;
+}
 .버튼{
     text-align: center;
 }
@@ -47,4 +53,14 @@
     transform: scale(1.2);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
   }
-  
+div{
+
+
+    border: 1px solid black;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background-color: #ffffff;
+    transition: all 0.3s ease;  
+    }
