@@ -1,179 +1,191 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>게임 스킬 페이지</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Inter Font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #121212;
-            color: #e0e0e0;
-        }
-        .video-modal {
-            transition: opacity 0.3s ease-in-out;
-        }
-        .video-container {
-            position: relative;
-            padding-bottom: 56.25%; /* 16:9 aspect ratio */
-            height: 0;
-            overflow: hidden;
-            border-radius: 1rem; /* Rounded corners for the video frame */
-        }
-        .video-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-    </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ATOM - 스킬 설명</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      color: white;
+      text-shadow: 1px 1px 5px black;
+      padding-top: 80px;
+      background: black;
+    }
+    .skill-card {
+      background-color: rgba(0,0,0,0.6);
+      border-radius: 10px;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .skill-card:hover {
+      transform: scale(1.02);
+      box-shadow: 0 0 20px rgba(255,255,255,0.3);
+    }
+    .skill-video {
+      border-radius: 10px;
+      margin-top: 1rem;
+      width: 100%;
+      height: auto;
+    }
+    .skill-icon {
+      width: 80px;
+      height: 80px;
+    }
+    .key-badge {
+      background-color: #ff5e62;
+      margin-left: 0.5rem;
+    }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      color: #ccc;
+      background-color: rgba(0,0,0,0.6);
+      position: relative;
+      bottom: 0;
+      width: 100%;
+    }
+    .navbar-nav .nav-link {
+      color: white !important;
+      position: relative;
+      overflow: hidden;
+      transition: color 0.3s ease;
+    }
+    .navbar-nav .nav-link::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 2px;
+      background-color: #ff5e62;
+      transform: scaleX(0);
+      transition: transform 0.3s ease;
+    }
+    .navbar-nav .nav-link:hover::after {
+      transform: scaleX(1);
+    }
+    .navbar-nav .nav-link:hover {
+      color: #ff5e62 !important;
+    }
+    .video-background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
+    }
+  </style>
 </head>
-<body class="p-4 md:p-8">
+<body>
 
-    <!-- Main Container -->
-    <div class="max-w-6xl mx-auto space-y-12">
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top" style="background-color: rgba(0,0,0,0.85);">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="atommainpage.html">ATOM</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item"><a class="nav-link" href="atommainpage.html">메인</a></li>
+          <li class="nav-item"><a class="nav-link" href="atomguide.html">공략</a></li>
+          <li class="nav-item"><a class="nav-link" href="atompatchnote.html">개발자 노트</a></li>
+          <li class="nav-item"><a class="nav-link active" href="atomskillpage.html">스킬 설명</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
-        <!-- Game Title and Image Header -->
-        <header class="text-center rounded-xl overflow-hidden shadow-2xl">
-            <!-- Replace this image URL with your actual game image -->
-            <img src="https://placehold.co/1200x400/3d3d3d/ffffff?text=Game+Title+Image" alt="게임 타이틀 이미지" class="w-full h-auto object-cover">
-            <div class="bg-gray-900 p-6">
-                <h1 class="text-4xl md:text-5xl font-bold text-white mb-2">게임 이름</h1>
-                <p class="text-lg text-gray-400">당신의 스킬을 선택하세요</p>
-            </div>
-        </header>
+  <!-- Content -->
+  <main class="container my-5">
+    <h1 class="mb-5 text-center">스킬 설명</h1>
 
-        <!-- Skills Section -->
-        <section>
-            <h2 class="text-3xl font-bold text-center text-white mb-8">스킬 목록</h2>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-
-                <!-- Skill 1: 불꽃 폭발 -->
-                <div class="bg-gray-800 p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
-                    <div class="flex items-center space-x-4 mb-4">
-                        <!-- Clickable Skill Icon -->
-                        <div class="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center text-3xl cursor-pointer hover:scale-110 transition-transform duration-300" onclick="openVideoModal('https://www.youtube.com/embed/79-hY1sBwN8?autoplay=1')">
-                            🔥
-                        </div>
-                        <div>
-                            <h3 class="text-2xl font-semibold text-white">불꽃 폭발</h3>
-                            <span class="text-sm text-gray-400">마법사 스킬</span>
-                        </div>
-                    </div>
-                    <p class="text-gray-300">
-                        전방에 강력한 불꽃을 터뜨려 넓은 범위에 피해를 입힙니다. 적에게 화상을 입히는 추가 효과가 있습니다.
-                    </p>
-                </div>
-
-                <!-- Skill 2: 얼음 방패 -->
-                <div class="bg-gray-800 p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
-                    <div class="flex items-center space-x-4 mb-4">
-                        <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center text-3xl cursor-pointer hover:scale-110 transition-transform duration-300" onclick="openVideoModal('https://www.youtube.com/embed/P_Pq8Uv9H9k?autoplay=1')">
-                            🛡️
-                        </div>
-                        <div>
-                            <h3 class="text-2xl font-semibold text-white">얼음 방패</h3>
-                            <span class="text-sm text-gray-400">수호자 스킬</span>
-                        </div>
-                    </div>
-                    <p class="text-gray-300">
-                        자신과 아군을 보호하는 단단한 얼음 방패를 소환합니다. 모든 피해를 잠시 동안 흡수합니다.
-                    </p>
-                </div>
-
-                <!-- Skill 3: 그림자 습격 -->
-                <div class="bg-gray-800 p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
-                    <div class="flex items-center space-x-4 mb-4">
-                        <div class="w-16 h-16 bg-purple-600 rounded-full flex items-center justify-center text-3xl cursor-pointer hover:scale-110 transition-transform duration-300" onclick="openVideoModal('https://www.youtube.com/embed/1_vjX42xI6s?autoplay=1')">
-                            👻
-                        </div>
-                        <div>
-                            <h3 class="text-2xl font-semibold text-white">그림자 습격</h3>
-                            <span class="text-sm text-gray-400">암살자 스킬</span>
-                        </div>
-                    </div>
-                    <p class="text-gray-300">
-                        그림자에 숨어 적의 뒤로 순간 이동하여 치명적인 일격을 가합니다. 적에게 기절 효과를 부여합니다.
-                    </p>
-                </div>
-                
-                <!-- Skill 4: 신성한 빛 -->
-                <div class="bg-gray-800 p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
-                    <div class="flex items-center space-x-4 mb-4">
-                        <div class="w-16 h-16 bg-yellow-600 rounded-full flex items-center justify-center text-3xl cursor-pointer hover:scale-110 transition-transform duration-300" onclick="openVideoModal('https://www.youtube.com/embed/5a44L3Mv3oA?autoplay=1')">
-                            ✨
-                        </div>
-                        <div>
-                            <h3 class="text-2xl font-semibold text-white">신성한 빛</h3>
-                            <span class="text-sm text-gray-400">성직자 스킬</span>
-                        </div>
-                    </div>
-                    <p class="text-gray-300">
-                        아군에게 치유의 빛을 내려 체력을 회복시키고 모든 부정적인 효과를 정화합니다.
-                    </p>
-                </div>
-
-                <!-- Skill 5: 용의 포효 -->
-                <div class="bg-gray-800 p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
-                    <div class="flex items-center space-x-4 mb-4">
-                        <div class="w-16 h-16 bg-emerald-600 rounded-full flex items-center justify-center text-3xl cursor-pointer hover:scale-110 transition-transform duration-300" onclick="openVideoModal('https://www.youtube.com/embed/SgT2d921b0I?autoplay=1')">
-                            🐉
-                        </div>
-                        <div>
-                            <h3 class="text-2xl font-semibold text-white">용의 포효</h3>
-                            <span class="text-sm text-gray-400">전사 스킬</span>
-                        </div>
-                    </div>
-                    <p class="text-gray-300">
-                        용의 힘을 빌려 강력한 포효를 내지릅니다. 주변 적들을 모두 공포에 떨게 하고 방어력을 낮춥니다.
-                    </p>
-                </div>
-
-            </div>
-        </section>
+    <!-- Skill 1 -->
+    <div class="skill-card row align-items-center">
+      <div class="col-md-2 text-center">
+        <img id="skill1-icon" src="images/fire_skill_icon.png" class="skill-icon rounded-circle" alt="불꽃 폭발">
+      </div>
+      <div class="col-md-10">
+        <h3>불꽃 폭발 <span class="badge key-badge">1</span></h3>
+        <p>전방에 강력한 불꽃을 터뜨려 넓은 범위에 피해를 입힙니다. 추가로 화상 효과를 부여합니다.</p>
+        <video class="skill-video" autoplay loop playsinline controls>
+          <source src="https://ifh.cc/v/kVvnNw.mp4" type="video/mp4">
+          지원하지 않는 브라우저입니다.
+        </video>
+      </div>
     </div>
 
-    <!-- Video Modal -->
-    <div id="videoModal" class="video-modal fixed inset-0 flex items-center justify-center bg-black/75 z-50 p-4 hidden">
-        <div class="w-full max-w-4xl relative">
-            <!-- Close button -->
-            <button class="absolute -top-10 right-0 text-white text-3xl font-bold p-2 leading-none" onclick="closeVideoModal()">&times;</button>
-            <div class="video-container">
-                <!-- iframe for the video -->
-                <iframe id="videoIframe" class="rounded-xl" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
-        </div>
+    <!-- Skill 2 -->
+    <div class="skill-card row align-items-center">
+      <div class="col-md-2 text-center">
+        <img id="skill2-icon" src="images/ice_shield_icon.png" class="skill-icon rounded-circle" alt="얼음 방패">
+      </div>
+      <div class="col-md-10">
+        <h3>얼음 방패 <span class="badge key-badge">2</span></h3>
+        <p>자신에게 얼음 보호막을 생성하여 일정량의 피해를 흡수합니다.</p>
+        <video class="skill-video" autoplay loop playsinline controls>
+          <source src="https://ifh.cc/v/kBPYQ5.mp4" type="video/mp4">
+          지원하지 않는 브라우저입니다.
+        </video>
+      </div>
     </div>
 
-    <script>
-        // Get the modal and iframe elements
-        const videoModal = document.getElementById('videoModal');
-        const videoIframe = document.getElementById('videoIframe');
+    <!-- Skill 3 -->
+    <div class="skill-card row align-items-center">
+      <div class="col-md-2 text-center">
+        <img id="skill3-icon" src="images/shadow_attack_icon.png" class="skill-icon rounded-circle" alt="그림자 습격">
+      </div>
+      <div class="col-md-10">
+        <h3>그림자 습격 <span class="badge key-badge">3</span></h3>
+        <p>그림자 속에서 적에게 돌진하여 피해를 입히고 잠시 속박합니다.</p>
+        <video class="skill-video" autoplay loop playsinline controls>
+          <source src="https://ifh.cc/v/JFfDpl.mp4" type="video/mp4">
+          지원하지 않는 브라우저입니다.
+        </video>
+      </div>
+    </div>
 
-        /**
-         * Opens the video modal and plays the specified video.
-         * @param {string} videoUrl - The URL of the video to play.
-         */
-        function openVideoModal(videoUrl) {
-            videoIframe.src = videoUrl;
-            videoModal.classList.remove('hidden');
-        }
+    <!-- Skill 4 -->
+    <div class="skill-card row align-items-center">
+      <div class="col-md-2 text-center">
+        <img id="skill4-icon" src="images/holy_light_icon.png" class="skill-icon rounded-circle" alt="신성한 빛">
+      </div>
+      <div class="col-md-10">
+        <h3>신성한 빛 <span class="badge key-badge">4</span></h3>
+        <p>주변 아군을 치유하고 적에게는 빛 피해를 줍니다.</p>
+        <video class="skill-video" autoplay loop playsinline controls>
+          <source src="https://ifh.cc/v/HGY6WY.mp4" type="video/mp4">
+          지원하지 않는 브라우저입니다.
+        </video>
+      </div>
+    </div>
 
-        /**
-         * Closes the video modal and stops the video playback.
-         */
-        function closeVideoModal() {
-            videoIframe.src = ''; // Stop video playback by clearing the source
-            videoModal.classList.add('hidden');
-        }
-    </script>
+    <!-- Skill 5 -->
+    <div class="skill-card row align-items-center">
+      <div class="col-md-2 text-center">
+        <img id="skill5-icon" src="images/dragon_roar_icon.png" class="skill-icon rounded-circle" alt="용의 포효">
+      </div>
+      <div class="col-md-10">
+        <h3>용의 포효 <span class="badge key-badge">5</span></h3>
+        <p>강력한 용의 포효로 적을 넉백시키고 광역 피해를 입힙니다.</p>
+        <video class="skill-video" autoplay loop playsinline controls>
+          <source src="https://ifh.cc/v/TSoQAv.mp4" type="video/mp4">
+          지원하지 않는 브라우저입니다.
+        </video>
+      </div>
+    </div>
 
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>© ATOM 3.0 project by 2025 KSS</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
