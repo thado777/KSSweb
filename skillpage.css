@@ -57,21 +57,24 @@ body {
     margin-top: 56px;
 }
 
-.hero-section::after {
-    content: "";
+
+.hero-section::before {
+    content: '';
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.893), transparent); /* background-image로 수정 */
     position: absolute;
-    top: 0;
     left: 0;
-    width: 100%;
+    top: 0;
     height: 100%;
-    background: rgba(0,0,0,0.6);
+    width: 100%;
+    z-index: 2; /* 그라데이션이 오버레이 위에 오도록 z-index를 더 높게 설정 */
 }
 
 .hero-section h1,
 .hero-section p {
     position: relative;
-    z-index: 1;
+    z-index: 4; /* 텍스트가 그라데이션과 오버레이 위에 오도록 설정 */
 }
+
 
 .skill-card {
     background-color: rgba(0,0,0,0.6);
