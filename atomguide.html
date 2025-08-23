@@ -65,7 +65,7 @@
 
       footer {
         text-align: center;
-        padding: 1rem;
+        padding: 0.05rem;
         color: #ccc;
         background-color: rgba(0, 0, 0, 0.6);
         position: fixed;
@@ -92,24 +92,23 @@
     <video class="video-background" src="https://ifh.cc/v/v4rRXL.mp4" muted autoplay loop playsinline></video>
 
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-md navbar-dark fixed-top">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="atommainpage.html">ATOM</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarCollapse">
-          <ul class="navbar-nav me-auto mb-2 mb-md-0">
-            <li class="nav-item">
-              <a class="nav-link active" href="atomguide.html">공략</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="atompatchnote.html">패치 노트</a>
-            </li>
-          </ul>
-        </div>
+     <nav class="navbar navbar-expand-md navbar-dark fixed-top" style="background-color: rgba(0,0,0,0.85);">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="atommainpage.html">ATOM</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item"><a class="nav-link" href="atommainpage.html">메인</a></li>
+          <li class="nav-item"><a class="nav-link" href="atomguide.html">공략</a></li>
+          <li class="nav-item"><a class="nav-link" href="atompatchnote.html">개발자 노트</a></li>
+          <li class="nav-item"><a class="nav-link" href="atomskillpage.html">스킬 설명</a></li>
+          <li class="nav-item"><a class="nav-link active" href="atomstory.html">스토리</a></li>
+        </ul>
       </div>
-    </nav>
+    </div>
+  </nav>
 
     <!-- Main Content -->
     <main class="container">
