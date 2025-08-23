@@ -1,0 +1,124 @@
+body {
+    color: white;
+    text-shadow: 1px 1px 5px black;
+    background: black;
+    font-family: 'Diphylleia', sans-serif;
+}
+
+/* Navbar styles */
+.navbar-nav .nav-link {
+    color: white !important;
+    position: relative;
+    overflow: hidden;
+    transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #ff5e62;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover::after {
+    transform: scaleX(1);
+}
+
+.navbar-nav .nav-link:hover {
+    color: #ff5e62 !important;
+}
+
+/* Background video */
+.video-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+/* Hero Section */
+.hero-section {
+    background: url('https://ifh.cc/g/XkPtas.jpg') no-repeat center center/cover;
+    height: 95vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    margin-top: 56px;
+}
+
+
+.hero-section::before {
+    content: '';
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.893), transparent); /* background-image로 수정 */
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 2; /* 그라데이션이 오버레이 위에 오도록 z-index를 더 높게 설정 */
+}
+
+.hero-section h1,
+.hero-section p {
+    position: relative;
+    z-index: 4; /* 텍스트가 그라데이션과 오버레이 위에 오도록 설정 */
+}
+
+
+
+
+/* Story content */
+.story-container {
+    background-color: rgba(0,0,0,0.8);
+    border-radius: 15px;
+    padding: 3rem;
+    margin: 2rem auto;
+    max-width: 1100px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.story-paragraph {
+    background-color: rgba(255,255,255,0.05);
+    border-radius: 10px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    line-height: 1.8;
+    font-size: 1.1rem;
+    border-left: 4px solid #ff5e62;
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.story-paragraph:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(255,94,98,0.2);
+}
+
+.story-title {
+    text-align: center;
+    color: #ff5e62;
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+    text-shadow: 2px 2px 10px rgba(255,94,98,0.5);
+}
+
+/* Footer styles */
+footer {
+    text-align: center;
+    padding: 1rem;
+    color: #ccc;
+    background-color: rgba(0,0,0,0.6);
+    margin-top: 2rem;
+}
