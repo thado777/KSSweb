@@ -1,13 +1,11 @@
-html, body {
-    height: 100%;
-    margin: 0;
-    padding-top: 80px;
+body {
     color: white;
     text-shadow: 1px 1px 5px black;
-    overflow: hidden;
+    background: black;
     font-family: 'Diphylleia', sans-serif;
 }
 
+/* Background video */
 .video-background {
     position: fixed;
     top: 0;
@@ -18,11 +16,7 @@ html, body {
     z-index: -1;
 }
 
-.navbar {
-    background-color: rgba(0, 0, 0, 0.85);
-}
-
-/* ====== 스킬 설명 페이지 Navbar 스타일 적용 ====== */
+/* Navbar styles */
 .navbar-nav .nav-link {
     color: white !important;
     position: relative;
@@ -50,23 +44,94 @@ html, body {
     color: #ff5e62 !important;
 }
 
-main {
+/* Hero Section */
+.hero-section {
+    background: url('https://ifh.cc/g/XkPtas.jpg') no-repeat center center/cover;
+    height: 95vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     text-align: center;
+    position: relative;
+    margin-top: 56px;
+}
+
+
+.hero-section::before {
+    content: '';
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.893), transparent); /* background-image로 수정 */
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 2; /* 그라데이션이 오버레이 위에 오도록 z-index를 더 높게 설정 */
+}
+
+.hero-section h1,
+.hero-section p {
+    position: relative;
+    z-index: 4; /* 텍스트가 그라데이션과 오버레이 위에 오도록 설정 */
+}
+.hero-section2 {
+    
+    height: 95vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    margin-top: 56px;
+}
+
+
+.hero-section2::before {
+    content: '';
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.893), transparent); /* background-image로 수정 */
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 2; /* 그라데이션이 오버레이 위에 오도록 z-index를 더 높게 설정 */
+}
+
+
+.skill-card {
+    background-color: rgba(0,0,0,0.6);
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skill-card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 20px rgba(255,255,255,0.3);
+}
+
+.skill-video {
+    border-radius: 10px;
+    margin-top: 1rem;
+    width: 100%;
+    height: auto;
+}
+
+.skill-icon {
+    width: 80px;
+    height: 80px;
+}
+
+.key-badge {
+    background-color: #ff5e62;
+    margin-left: 0.5rem;
 }
 
 footer {
     text-align: center;
     padding: 0.05rem;
     color: #ccc;
-    background-color: rgba(0, 0, 0, 0.6);
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-}
-
-.content-box {
-    background-color: rgba(0, 0, 0, 0.5);
-    border-radius: 10px;
-    padding: 2rem;
-    margin-top: 2rem;
+    background-color: rgba(0,0,0,0.6);
 }
