@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>공략</title>
+    <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: "Jua";
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+        }
+
+        /* 상단 바 스타일 */
+        .navbar {
+            padding: 0px 30px 0px 10px;
+            width: 100vw;
+            height: 70px;
+            position: fixed;
+            top: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #000000;
+            color: rgb(0, 0, 0);
+            box-sizing: content-box;
+        }
+
+        .icon-img img {
+            width: 60px;
+            height: 60px;
+            margin-right: 20px;
+        }
+
+        .nav-item-btn {
+            padding: 10px 15px;
+            background-color: #000000;
+            color: rgb(255, 255, 255);
+            margin: 0 15px;
+            cursor: pointer;
+            border-radius: 5px;
+            border: none;
+            text-decoration: none;
+            font-size: 18px;
+            font-family: "Jua";
+            font-style: normal;
+            transition: 0.25s;
+        }
+
+        .nav-item-btn:hover {
+            background-color: rgba(222, 222, 222, 0.6);
+        }
+
+        .navbar.active {
+            border-bottom: 2px solid gray;
+        }
+
+        .navbar .logo img {
+            height: 40px; /* 로고 이미지 높이 */
+        }
+
+        .nav-icons {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-icons .icon {
+            margin-left: 15px;
+            height: 30px; /* 아이콘 이미지 높이 */
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .nav-icons .icon:hover {
+            transform: scale(1.1); /* 아이콘 호버 효과 */
+        }
+
+        /* 본문 내용의 컨테이너 스타일 */
+        .container {
+            text-align: center;
+            width: 100%;
+            margin-top: 60px; /* 상단 바 높이만큼 여백 추가 */
+            font-family: "Jua";
+        }
+
+        /* 헤더 스타일 */
+        .header {
+            background-color: #f3f3d0;
+            padding: 20px 0;
+            animation: fadeIn 2s ease-in-out;
+            font-family: "Jua";
+            font-style: normal;
+            font-weight: 70;
+        }
+
+        .title {
+            color: #000000;
+        }
+
+        /* 검색 입력 필드 스타일 */
+        #searchInput::placeholder {
+            color: #ffffff;
+        }
+
+        #searchInput {
+            width: 300px;
+            padding: 10px;
+            margin: 20px 0;
+            font-size: 16px;
+            background-color: #000000;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            transition: transform 0.3s ease;
+            font-family: "Jua";
+        }
+
+        #searchInput:focus {
+            transform: scale(1.1);
+        }
+
+        /* 버튼 스타일 */
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #000000;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            font-family: "Jua";
+        }
+
+        button:hover {
+            background-color: #333333;
+        }
+
+        /* 검색 결과 및 추천 검색어 컨테이너 스타일 */
+        #results, #suggestions {
+            margin-top: 20px;
+        }
+
+        #suggestions {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .suggestion-item {
+            background-color: #000000;
+            color: #ffffff;
+            border-radius: 5px;
+            padding: 5px 10px;
+            margin: 5px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .suggestion-item:hover {
+            transform: scale(1.1);
+        }
+
+        #questions {
+            margin-top: 20px;
+        }
+
+        /* 페이드 인 애니메이션 */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .footer {
+            background-color: #f3f3d0; /* 하단 바 배경 색상 */
+            height: 50px; /* 하단 바 높이 설정 */
+            width: 100%;
+            position: fixed; /* 하단 바를 화면 하단에 고정 */
+            bottom: 0; /* 하단에서 0px 떨어지게 설정 */
+            left: 0; /* 왼쪽에서 0px 떨어지게 설정 */
+            z-index: 1000; /* 상단 바와 동일한 z-index로 설정 */
+            display: flex;
+            justify-content: center; /* 텍스트를 중앙에 정렬 */
+            align-items: center; /* 텍스트를 수직으로 중앙 정렬 */
+            color: #373c43; /* 텍스트 색상 */
+            font-size: 14px; /* 텍스트 크기 */
+            font-family: "Jua";
+        }
+    </style>
+</head>
+<body>
+    <!-- 상단 바 -->
+    <div class="navbar">
+        <div class="logo">
+            <img src="Atom1.png" alt="Logo"> <!-- 로고 이미지 추가 -->
+        </div>
+        <div class="list-menu">
+            <a href="#" class="nav-item-btn">홈</a>
+            <a href="#" class="nav-item-btn">개발자 노트</a>
+            <a href="#" class="nav-item-btn">공략노트</a>
+            <a href="#" class="nav-item-btn">고객센터</a>
+        </div>
+        <div></div>
+    </div>
+
+    <!-- 컨테이너 -->
+    <div class="container">
+        <div class="header">
+            <div class="title">
+                <h1>공략</h1>
+            </div>
+            <input type="text" id="searchInput" placeholder="입력">
+            <button onclick="search()">검색</button>
+        </div>
+        <div id="results"></div>
+        <div id="suggestions"></div>
+        <div id="questions"></div>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2024 ATOM 2.0 Project by KSS</p> <!-- 저작권 정보 추가 -->
+    </div>
+
+    <script>
+        const data = [
+            { title: '조작법', description: '기본 WSAD 조작법 \n W:위쪽 방향 이동 S:아래쪽 방향 이동 \n A: 왼쪽 방향 이동 D:오른쪽 방향 이동, 마우스 클릭: 공격 Tap: 무기 변경' },
+            { title: 'stage 1', description: '플레이 방법..' },
+            { title: 'stage 2', description: '플레이 방법...' },
+            { title: '중간보스', description: '플레이 방법..' },
+            { title: 'stgae 3', description: '플레이 방법..' },
+            { title: 'stage 4', description: '플레이 방법...' },
+            { title: '최종보스', description: '플레이 방법...' },
+        ]
+        const suggestionsData = [
+            '조작법', 'stage 1', 'stage 2', '중간보스', 'stage3', 'stage 4', '최종보스'
+        ];
+
+        document.getElementById('searchInput').addEventListener('keyup', function (event) {
+            if (event.key === 'Enter') {
+                search();
+            }
+            showSuggestions();
+            showQuestions();
+        });
+
+        function search() {
+            const query = document.getElementById('searchInput').value.toLowerCase();
+            const resultsContainer = document.getElementById('results');
+            resultsContainer.innerHTML = '';
+
+            const results = data.filter(item =>
+                item.title.toLowerCase().includes(query) || item.description.toLowerCase().includes(query)
+            );
+
+            if (results.length === 0) {
+                resultsContainer.innerHTML = '<p>No results found.</p>';
+            } else {
+                results.forEach(item => {
+                    const resultItem = document.createElement('div');
+
+                    let descriptionContent = item.description;
+                    if (descriptionContent.startsWith('http')) {
+                        descriptionContent = `<a href="${descriptionContent}" target="_blank">${descriptionContent}</a>`;
+                    }
+
+                    resultItem.innerHTML = `<h2>${item.title}</h2><p>${descriptionContent}</p>`;
+                    resultsContainer.appendChild(resultItem);
+                });
+            }
+        }
+
+        function showSuggestions() {
+            const query = document.getElementById('searchInput').value.toLowerCase();
+            const suggestionsContainer = document.getElementById('suggestions');
+            suggestionsContainer.innerHTML = '';
+
+            const filteredSuggestions = suggestionsData.filter(suggestion =>
+                suggestion.toLowerCase().includes(query)
+            );
+
+            filteredSuggestions.forEach(suggestion => {
+                const suggestionItem = document.createElement('div');
+                suggestionItem.classList.add('suggestion-item');
+                suggestionItem.textContent = suggestion;
+                suggestionItem.addEventListener('click', function () {
+                    document.getElementById('searchInput').value = suggestion;
+                    search();
+                });
+                suggestionsContainer.appendChild(suggestionItem);
+            });
+        }
+
+        function showQuestions() {
+            const query = document.getElementById('searchInput').value.toLowerCase();
+            const questionsContainer = document.getElementById('questions');
+            questionsContainer.innerHTML = '';
+
+            const filteredQuestions = data.filter(item =>
+                item.title.toLowerCase().includes(query)
+            );
+
+            filteredQuestions.forEach(question => {
+                const questionItem = document.createElement('div');
+                questionItem.classList.add('suggestion-item');
+                questionItem.textContent = question.title;
+                questionItem.addEventListener('click', function () {
+                    document.getElementById('searchInput').value = question.title;
+                    search();
+                });
+                questionsContainer.appendChild(questionItem);
+            });
+        }
+    </script>
+</body>
+</html>
