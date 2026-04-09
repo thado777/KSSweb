@@ -204,6 +204,8 @@ body.home-page {
     box-shadow:
       0 28px 60px rgba(0, 0, 0, 0.4),
       inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(18px) saturate(140%);
+    -webkit-backdrop-filter: blur(18px) saturate(140%);
   }
 
   .hero-panel--landing::before {
@@ -230,6 +232,11 @@ body.home-page {
       rgba(16, 18, 24, 0.3);
   }
 
+  .hero-actions--landing .atom-btn {
+    backdrop-filter: blur(14px) saturate(135%);
+    -webkit-backdrop-filter: blur(14px) saturate(135%);
+  }
+
   .hero-side-note {
     gap: 0.72rem;
     padding: 1rem;
@@ -252,5 +259,7 @@ body.home-page {
       linear-gradient(180deg, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0.05)),
       rgba(10, 12, 16, 0.28);
     border-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(14px) saturate(130%);
+    -webkit-backdrop-filter: blur(14px) saturate(130%);
   }
 }

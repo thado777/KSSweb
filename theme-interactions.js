@@ -1,6 +1,7 @@
 (() => {
   const compactMedia = window.matchMedia("(max-width: 991.98px)");
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  const mobilePressClass = "mobile-press";
 
   const setLiquidFrame = (liquid, x, y, width, height, opacity = 1) => {
     liquid.style.width = `${width}px`;
@@ -47,6 +48,30 @@
     const activeLink = () =>
       shell.querySelector(".nav-link.active") || shell.querySelector(".nav-link");
 
+    const clearMobilePress = () => {
+      links.forEach((item) => {
+        item.classList.remove(mobilePressClass);
+
+        if (item.__mobilePressTimeout) {
+          window.clearTimeout(item.__mobilePressTimeout);
+          item.__mobilePressTimeout = null;
+        }
+      });
+    };
+
+    const pulseMobileLink = (link) => {
+      if (!compactMedia.matches || !link) {
+        return;
+      }
+
+      clearMobilePress();
+      link.classList.add(mobilePressClass);
+      link.__mobilePressTimeout = window.setTimeout(() => {
+        link.classList.remove(mobilePressClass);
+        link.__mobilePressTimeout = null;
+      }, 220);
+    };
+
     const settle = () => {
       if (compactMedia.matches) {
         const shellRect = shell.getBoundingClientRect();
@@ -80,9 +105,33 @@
     };
 
     links.forEach((link) => {
-      link.addEventListener("pointerenter", () => moveToLink(shell, liquid, link, 0.98));
-      link.addEventListener("focus", () => moveToLink(shell, liquid, link, 0.98));
-      link.addEventListener("pointerdown", () => moveToLink(shell, liquid, link, 1));
+      link.addEventListener("pointerenter", () => {
+        if (compactMedia.matches) {
+          return;
+        }
+
+        moveToLink(shell, liquid, link, 0.98);
+      });
+
+      link.addEventListener("focus", () => {
+        if (compactMedia.matches) {
+          pulseMobileLink(link);
+          return;
+        }
+
+        moveToLink(shell, liquid, link, 0.98);
+      });
+
+      link.addEventListener("pointerdown", () => {
+        if (compactMedia.matches) {
+          pulseMobileLink(link);
+          return;
+        }
+
+        moveToLink(shell, liquid, link, 1);
+      });
+
+      link.addEventListener("touchstart", () => pulseMobileLink(link), { passive: true });
     });
 
     shell.addEventListener("pointermove", (event) => {
@@ -143,8 +192,12 @@
     }, { passive: true });
 
     shell.addEventListener("touchend", settle, { passive: true });
+    shell.addEventListener("touchcancel", settle, { passive: true });
     collapse.addEventListener("shown.bs.collapse", () => requestAnimationFrame(settle));
-    collapse.addEventListener("hidden.bs.collapse", () => requestAnimationFrame(settle));
+    collapse.addEventListener("hidden.bs.collapse", () => {
+      clearMobilePress();
+      requestAnimationFrame(settle);
+    });
     window.addEventListener("resize", settle);
     window.addEventListener("load", settle, { once: true });
 

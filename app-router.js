@@ -6,6 +6,7 @@
   window.__atomRouterReady = true;
 
   const parser = new DOMParser();
+  const compactMedia = window.matchMedia("(max-width: 991.98px)");
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
   const routeFiles = new Set([
     "atommainpage.html",
@@ -17,6 +18,7 @@
   const pageCache = new Map();
 
   const wait = (ms) => new Promise((resolve) => window.setTimeout(resolve, ms));
+  const isCompact = () => compactMedia.matches;
 
   const getRouteUrl = (href) => {
     try {
@@ -196,13 +198,17 @@
     }
 
     const nextMain = document.importNode(nextMainSource, true);
-    nextMain.classList.add("route-is-entering");
     currentMain.replaceWith(nextMain);
 
+    if (reducedMotion.matches || isCompact()) {
+      return;
+    }
+
+    nextMain.classList.add("route-is-entering");
     window.requestAnimationFrame(() => {
       window.setTimeout(() => {
         nextMain.classList.remove("route-is-entering");
-      }, reducedMotion.matches ? 0 : 340);
+      }, 340);
     });
   };
 
@@ -215,17 +221,19 @@
       window.scrollTo({
         top: 0,
         left: 0,
-        behavior: reducedMotion.matches ? "auto" : "smooth",
+        behavior: reducedMotion.matches || isCompact() ? "auto" : "smooth",
       });
       return;
     }
 
     const token = ++navigationToken;
     const currentMain = document.querySelector("main");
-    currentMain?.classList.add("route-is-switching");
+    if (!reducedMotion.matches && !isCompact()) {
+      currentMain?.classList.add("route-is-switching");
+    }
     closeMobileNav();
 
-    if (!reducedMotion.matches) {
+    if (!reducedMotion.matches && !isCompact()) {
       await wait(120);
     }
 
@@ -318,6 +326,18 @@
     }
   });
 
+  const primeRouteCache = () => {
+    const currentFile = getRouteFile(new URL(window.location.href));
+
+    routeFiles.forEach((file) => {
+      if (file === currentFile) {
+        return;
+      }
+
+      fetchPageDocument(new URL(file, window.location.href)).catch(() => {});
+    });
+  };
+
   window.addEventListener("popstate", () => {
     const url = getRouteUrl(window.location.href);
 
@@ -329,4 +349,10 @@
   history.replaceState({ route: window.location.href }, "", window.location.href);
   updateActiveNav(getRouteFile(new URL(window.location.href)));
   syncBackdrop(document.body.classList.contains("home-page"));
+
+  if ("requestIdleCallback" in window) {
+    window.requestIdleCallback(primeRouteCache, { timeout: 1200 });
+  } else {
+    window.setTimeout(primeRouteCache, 450);
+  }
 })();

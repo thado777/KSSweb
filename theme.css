@@ -657,6 +657,22 @@ footer p {
     text-align: center;
   }
 
+  .navbar-nav .nav-link.active {
+    background: transparent;
+    box-shadow: none;
+    text-shadow: none;
+  }
+
+  .navbar-nav .nav-link.mobile-press,
+  .navbar-nav .nav-link:active {
+    background:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.22), rgba(255, 255, 255, 0.06)),
+      rgba(255, 255, 255, 0.08);
+    box-shadow:
+      0 10px 24px rgba(0, 0, 0, 0.14),
+      inset 0 1px 0 rgba(255, 255, 255, 0.22);
+  }
+
   .nav-liquid {
     opacity: 0 !important;
     transition:
@@ -674,6 +690,25 @@ footer p {
 @media (max-width: 767.98px) {
   body:not(.home-page) {
     background-attachment: scroll;
+  }
+
+  .hero-panel,
+  .side-panel,
+  .feature-card,
+  .surface-card {
+    backdrop-filter: blur(16px) saturate(135%);
+    -webkit-backdrop-filter: blur(16px) saturate(135%);
+  }
+
+  .atom-btn {
+    backdrop-filter: blur(14px) saturate(135%);
+    -webkit-backdrop-filter: blur(14px) saturate(135%);
+  }
+
+  .stat-pill,
+  .mini-card {
+    backdrop-filter: blur(12px) saturate(130%);
+    -webkit-backdrop-filter: blur(12px) saturate(130%);
   }
 
   .page-backdrop,
@@ -754,5 +789,13 @@ footer p {
   .nav-liquid {
     width: 112px;
     height: 52px;
+  }
+
+  main.route-is-switching,
+  main.route-is-entering {
+    opacity: 1;
+    transform: none;
+    filter: none;
+    animation: none;
   }
 }
