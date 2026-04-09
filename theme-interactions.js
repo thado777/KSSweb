@@ -48,7 +48,7 @@
       shell.querySelector(".nav-link.active") || shell.querySelector(".nav-link");
 
     const settle = () => {
-      if (compactMedia.matches && !collapse.classList.contains("show")) {
+      if (compactMedia.matches) {
         const shellRect = shell.getBoundingClientRect();
 
         setLiquidFrame(
@@ -90,7 +90,7 @@
         return;
       }
 
-      if (compactMedia.matches && !collapse.classList.contains("show")) {
+      if (compactMedia.matches) {
         return;
       }
 
@@ -103,7 +103,7 @@
 
     shell.addEventListener("pointerleave", settle);
     shell.addEventListener("touchstart", (event) => {
-      if (compactMedia.matches && !collapse.classList.contains("show")) {
+      if (compactMedia.matches) {
         return;
       }
 

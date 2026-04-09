@@ -197,12 +197,37 @@ body.home-page {
   .hero-panel--landing {
     width: 100%;
     border-radius: 30px;
+    background:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.24), rgba(255, 255, 255, 0.08)),
+      rgba(10, 12, 16, 0.32);
+    border-color: rgba(255, 255, 255, 0.24);
+    box-shadow:
+      0 28px 60px rgba(0, 0, 0, 0.4),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  }
+
+  .hero-panel--landing::before {
+    background:
+      linear-gradient(135deg, rgba(255, 255, 255, 0.2), transparent 36%),
+      linear-gradient(180deg, transparent 52%, rgba(255, 255, 255, 0.08));
   }
 
   .hero-actions--landing {
     grid-template-columns: 1fr;
     gap: 0.72rem;
     margin-top: 1.9rem;
+  }
+
+  .hero-actions--landing .atom-btn.primary {
+    background:
+      linear-gradient(180deg, rgba(255, 136, 140, 0.64), rgba(255, 94, 98, 0.28)),
+      rgba(255, 94, 98, 0.16);
+  }
+
+  .hero-actions--landing .atom-btn.secondary {
+    background:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.24), rgba(255, 255, 255, 0.08)),
+      rgba(16, 18, 24, 0.3);
   }
 
   .hero-side-note {
@@ -216,5 +241,16 @@ body.home-page {
 
   .hero-side-note .stat-pill {
     min-height: auto;
+    background:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.05)),
+      rgba(11, 13, 18, 0.28);
+    border-color: rgba(255, 255, 255, 0.16);
+  }
+
+  .home-pillars .feature-card {
+    background:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0.05)),
+      rgba(10, 12, 16, 0.28);
+    border-color: rgba(255, 255, 255, 0.2);
   }
 }
