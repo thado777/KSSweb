@@ -167,16 +167,17 @@ body.home-page {
 
 @media (max-width: 767.98px) {
   .home-hero {
-    padding-top: 7.3rem;
+    padding-top: 7rem;
   }
 
   .home-hero .hero-shell {
     min-height: auto;
+    gap: 0.9rem;
   }
 
   .hero-copy--landing {
     min-height: auto;
-    padding: 2.4rem 1.2rem 2rem;
+    padding: 2.1rem 1.05rem 1.75rem;
   }
 
   .hero-title--emphasis {
@@ -194,11 +195,23 @@ body.home-page {
   }
 
   .hero-panel--landing {
+    width: 100%;
     border-radius: 30px;
   }
 
   .hero-actions--landing {
     grid-template-columns: 1fr;
+    gap: 0.72rem;
+    margin-top: 1.9rem;
+  }
+
+  .hero-side-note {
+    gap: 0.72rem;
+    padding: 1rem;
+  }
+
+  .hero-side-note h2 {
+    margin: 0.15rem 0 0.4rem;
   }
 
   .hero-side-note .stat-pill {

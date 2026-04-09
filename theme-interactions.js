@@ -57,7 +57,7 @@
           shellRect.height / 2,
           112,
           48,
-          0.24,
+          0,
         );
         return;
       }
@@ -90,6 +90,10 @@
         return;
       }
 
+      if (compactMedia.matches && !collapse.classList.contains("show")) {
+        return;
+      }
+
       const hoveredLink = event.target.closest(".nav-link");
 
       if (hoveredLink) {
@@ -99,6 +103,10 @@
 
     shell.addEventListener("pointerleave", settle);
     shell.addEventListener("touchstart", (event) => {
+      if (compactMedia.matches && !collapse.classList.contains("show")) {
+        return;
+      }
+
       const touch = event.touches[0];
 
       if (!touch) {
@@ -114,6 +122,10 @@
 
     shell.addEventListener("touchmove", (event) => {
       if (reducedMotion.matches) {
+        return;
+      }
+
+      if (compactMedia.matches) {
         return;
       }
 
