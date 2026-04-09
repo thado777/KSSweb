@@ -1,7 +1,3 @@
-.guide-hero .hero-shell {
-    grid-template-columns: minmax(0, 1.4fr) minmax(280px, 0.8fr);
-}
-
 .guide-kpis,
 .control-grid,
 .weapon-grid,
@@ -127,5 +123,31 @@
     .control-grid,
     .build-grid {
         grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+@media (min-width: 992px) {
+    .guide-hero .hero-shell {
+        grid-template-columns: minmax(0, 1.4fr) minmax(280px, 0.8fr);
+    }
+}
+
+@media (max-width: 767.98px) {
+    .weapon-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .weapon-card {
+        padding: 1.1rem;
+    }
+
+    .weapon-head {
+        align-items: flex-start;
+    }
+
+    .weapon-image {
+        width: 72px;
+        height: 72px;
+        border-radius: 18px;
     }
 }
