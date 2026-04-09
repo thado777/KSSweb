@@ -3,215 +3,235 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>ATOM 공략</title>
+    <title>ATOM - 공략</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="skillpage.css">
-    
+    <link rel="stylesheet" href="theme.css">
+    <link rel="stylesheet" href="guide.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Diphylleia&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
-    
-    <nav class="navbar navbar-expand-md navbar-dark fixed-top" style="background-color: rgba(0,0,0,0.85);">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="atommainpage.html">ATOM</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container-fluid container-wide">
+            <a class="navbar-brand" href="atommainpage.html">A T O M</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="메뉴 열기">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav me-auto">
-                    <li class="nav-item"><a class="nav-link" href="atomguide.html">공략</a></li>
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="atommainpage.html">메인</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="atomguide.html">공략</a></li>
+                    <li class="nav-item"><a class="nav-link" href="atomskillpage.html">스킬 설명</a></li>
                     <li class="nav-item"><a class="nav-link" href="atompatchnote.html">패치 노트</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="atomskillpage.html">스킬 설명</a></li>
                     <li class="nav-item"><a class="nav-link" href="atomstory.html">스토리</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <section class="hero-section">
-        <h1 class="display-3 fw-bold">ATOM 공략</h1><br>
-        <p class="lead">"템빨이 곧 실력"</p>
-    </section> 
+    <main>
+        <section class="page-hero guide-hero">
+            <div class="container-wide hero-shell">
+                <div class="hero-panel">
+                    <div class="hero-copy">
+                        <span class="kicker">공략</span>
+                        <h1 class="hero-title">아이템 카드</h1>
+                        <p class="hero-lead">"템빨이 곧 실력"</p>
+                        <div class="guide-kpis">
+                            <div class="stat-pill">
+                                <span>아이템 카드</span>
+                                <strong>12종</strong>
+                            </div>
+                            <div class="stat-pill">
+                                <span>조작 설명</span>
+                                <strong>기본 / 스킬</strong>
+                            </div>
+                            <div class="stat-pill">
+                                <span>등급</span>
+                                <strong>C ~ 불명</strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-    <main class="container my-5">
-        <p class="display-4 text-center">아이템 카드</p><br><br>
-
-        <div class="skill-card row align-items-center">
-            <div class="col-md-2 text-center">
-                <img id="skill1-icon" src="https://ifh.cc/g/Sr8YFG.png" class="skill-icon rou                 nded-circle" alt="강철검">
-            </div>
-            <div class="col-md-10">
-                 <h3>강철검</h3> <span class="badge key-badge"></span></h3>
-                입수 난이도 : C<br><br>-탁신문이 이중던전 때 두고갔던 검. <br><br> -AD:10 AP:10 최대체력:+0</p>
-            
-            </div>
-        </div>
-
-      <div class="skill-card row align-items-center">
-            <div class="col-md-2 text-center">
-                <img id="skill1-icon" src="https://ifh.cc/g/F2K4qG.png" class="skill-icon rounded-circle" alt="불꽃 폭발">
-            </div>
-            <div class="col-md-10">
-                <h3>붉은 칼날</h3> <span class="badge key-badge"></span></h3>
-                입수 난이도 : B<br><br>-작은 불꽃이 타오르는 검. 닿으면 2도 화상에 입을 것 같다. <br><br> -AD:20 AP:10 최대체력:+0</p>
-            
-            </div>
-        </div>
-
-       <div class="skill-card row align-items-center">
-            <div class="col-md-2 text-center">
-                <img id="skill1-icon" src="https://ifh.cc/g/tCYzZj.png" class="skill-icon rounded-circle" alt="불꽃 폭발">
-            </div>
-            <div class="col-md-10">
-                <h3>혹한의 심판</h3> <span class="badge key-badge"></span></h3>
-                입수 난이도 : B+<br><br>-차가운 서리 기운이 밖으로 표출되는 도끼. 잡는 순간 손까지 얼려버릴 기세다. <br><br> -AD:40 AP:40 최대체력:-30</p>
-            
-            </div>
-        </div>
-
-      <div class="skill-card row align-items-center">
-            <div class="col-md-2 text-center">
-                <img id="skill1-icon" src="https://ifh.cc/g/ysG1W0.png" class="skill-icon rounded-circle" alt="불꽃 폭발">
-            </div>
-            <div class="col-md-10">
-                <h3>빙마참도</h3> <span class="badge key-badge"></span></h3>
-                입수 난이도 : B<br><br>-전방을 가를 때마다 공기의 수증기가 모두 얼어버릴 기세를 갖고 있는 검. 검집이 얼지 않게 조심해야 할 것만 같다.<div class=""></div> <br> -AD:10 AP:20 최대체력:+10</p>
-            
-            </div>
-        </div>
-
-         <div class="skill-card row align-items-center">
-            <div class="col-md-2 text-center">
-                <img id="skill1-icon" src="https://ifh.cc/g/Yn5TfF.png" class="skill-icon rounded-circle" alt="불꽃 폭발">
-            </div>
-            <div class="col-md-10">
-                <h3>대마도사의 지팡이</h3> <span class="badge key-badge"></span></h3>
-                입수 난이도 : B+<br><br>-대마도사가 쓰던 지팡이. 왠지 사용하면 강력한 마법이 나갈 것만 같다.<div class=""></div> <br> -AD:15 AP:40 최대체력:+5</p>
-            
-            </div>
-            </div>
-       
-
-            <div class="skill-card row align-items-center">
-            <div class="col-md-2 text-center">
-                <img id="skill1-icon" src="https://ifh.cc/g/FnW4zB.png" class="skill-icon rounded-circle" alt="불꽃 폭발">
-            </div>
-            <div class="col-md-10">
-                <h3>아마카제(하늘바람)</h3> <span class="badge key-badge"></span></h3>
-                입수 난이도 : A<br><br>-칼날이 바람처럼 빠르게 움직이며 적을 스치듯 벤다. 하늘을 가르는 바람의 힘을 담아, 날렵하고 예리할 것만 같다.<div class=""></div> <br> -AD:65 AP:10 최대체력:+10</p>
-            
-            </div>
-            </div>
-        
-
-
-       
-        </div>
-        <div class="skill-card row align-items-center">
-            <div class="col-md-2 text-center">
-                <img id="skill1-icon" src="https://ifh.cc/g/nlKZYl.png" class="skill-icon rounded-circle" alt="불꽃 폭발">
-            </div>
-            <div class="col-md-10">
-                <h3>데스브링어(Deathbringer)</h3> <span class="badge key-badge"></span></h3>
-                입수 난이도 : A<br><br>-잔혹한 피 냄새가 나는 검. 묵직한 이 검을 들면 무엇이든지 베어버릴 수 있을 것만 같다.<div class=""></div> <br> -AD:50 AP:20 최대체력:+20</p>
-            
-            </div>
-        </div>
-
-        <div class="skill-card row align-items-center">
-            <div class="col-md-2 text-center">
-                <img id="skill1-icon" src="https://ifh.cc/g/zKhxyo.png" class="skill-icon rounded-circle" alt="불꽃 폭발">
-            </div>
-            <div class="col-md-10">
-                <h3>레바테인</h3> <span class="badge key-badge"></span></h3>
-                입수 난이도 : A<br><br>-레바테인. 죽음의 문으로 끌어들일 수 있는 능력을 가지고 있다. <div class=""></div> <br> -AD:15 AP:75 최대체력:-10</p>
-            
-            </div>
-        </div>
-
-
-          <div class="skill-card row align-items-center">
-            <div class="col-md-2 text-center">
-                <img id="skill1-icon" src="https://ifh.cc/g/zKhxyo.png" class="skill-icon rounded-circle" alt="불꽃 폭발">
-            </div>
-            <div class="col-md-10">
-                <h3>헤파이스토스의 망치</h3> <span class="badge key-badge"></span></h3>
-                입수 난이도 : S<br><br>-아만단티움을 벼려낼 수 있는 망치. 그에 걸맞는 무자비한 파괴력을 자랑한다. <div class=""></div> <br> -AD:80 AP:35 최대체력:+0</p>
-            
-            </div>
-        </div>
-
-    
-
-        <div class="skill-card row align-items-center">
-            <div class="col-md-2 text-center">
-                <img id="skill1-icon" src="https://ifh.cc/g/wVMGJv.png" class="skill-icon rounded-circle" alt="불꽃 폭발">
-            </div>
-            <div class="col-md-10">
-                <h3>미스틸테인</h3> <span class="badge key-badge"></span></h3>
-                입수 난이도 : SS<br><br>-미스틸테인. 신을 죽인 무기라고 불리우며 그에 걸맞는 외형과 파괴력을 자랑한다.<div class=""></div> <br> -AD:25 AP:110 최대체력:-10</p>
-            
-            </div>
-        </div>
-        
-      
-
-        <div class="skill-card row align-items-center">
-            <div class="col-md-2 text-center">
-                <img id="skill1-icon" src="https://ifh.cc/g/VmxpwW.png" class="skill-icon rounded-circle" alt="불꽃 폭발">
-            </div>
-            <div class="col-md-10">
-                <h3>티르빙</h3> <span class="badge key-badge"></span></h3>
-                입수 난이도 : SS<br><br>-피를 부르는 검. 시전자는 상대방의 체력을 흡수하여 자신의 체력을 회복한다. <div class=""></div> <br> -AD:55 AP:35 최대체력:+45</p>
-            
-            </div>
-        </div>
-
-
-        
-        </div>
-
-        <div class="skill-card row align-items-center">
-            <div class="col-md-2 text-center">
-                <img id="skill1-icon" src="https://ifh.cc/g/NWwB3p.png" class="skill-icon rounded-circle" alt="탁신문의 강철검">
-            </div>
-            <div class="col-md-10">
-                <h3>탁신문의 강철검</h3> <span class="badge key-badge"></span></h3>
-                입수 난이도 : 불명<br><br>-??? <div class=""></div> <br> -AD:300 AP:300</p>
-            
-            </div>
-        </div>
-
-    </main>
-
-     <section class="hero-section2">
-        <p class="display-6 text-center ">ATOM 조작법 설명</p>
-        <p class="display-7 text-center">"템빨도 못이기는 실력"</p><br><br>  
-
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <h3>기본 조작법</h3>
-                    <ul>
+                <aside class="side-panel">
+                    <span class="kicker">조작법</span>
+                    <h2>ATOM 조작법 설명</h2>
+                    <ul class="simple-list">
                         <li>W, A, S, D: 이동</li>
                         <li>좌클릭: 기본 공격</li>
-                    </ul>
-                </div>
-                <div class="col-md-6">
-                    <h3>스킬 사용법</h3>
-                    <ul>
-                        <li>Q, E, R, F, 키: 스킬 사용</li>
+                        <li>Q, E, R, F: 스킬 사용</li>
                         <li>X: 궁극기 사용</li>
                         <li>스킬은 쿨타임이 있으니 전략적으로 사용하세요!</li>
                     </ul>
+                </aside>
+            </div>
+        </section>
+
+        <section class="section-block">
+            <div class="container-wide">
+                <div class="section-heading">
+                    <div>
+                        <h2 class="section-title">아이템 카드</h2>
+                        <p class="section-copy">전투의 성격을 바꾸는 장비들을 등급과 스탯 중심으로 정리했습니다.</p>
+                    </div>
+                </div>
+
+                <div class="weapon-grid">
+                    <article class="surface-card weapon-card">
+                        <div class="weapon-head">
+                            <img class="weapon-image" src="https://ifh.cc/g/Sr8YFG.png" alt="강철검">
+                            <div>
+                                <div class="weapon-rank rank-c">C</div>
+                                <h3>강철검</h3>
+                            </div>
+                        </div>
+                        <p>탁신문이 이중던전 때 두고갔던 검.</p>
+                        <div class="weapon-stats"><span>AD 10</span><span>AP 10</span><span>최대체력 +0</span></div>
+                    </article>
+
+                    <article class="surface-card weapon-card">
+                        <div class="weapon-head">
+                            <img class="weapon-image" src="https://ifh.cc/g/F2K4qG.png" alt="붉은 칼날">
+                            <div>
+                                <div class="weapon-rank rank-b">B</div>
+                                <h3>붉은 칼날</h3>
+                            </div>
+                        </div>
+                        <p>작은 불꽃이 타오르는 검. 닿으면 2도 화상에 입을 것 같다.</p>
+                        <div class="weapon-stats"><span>AD 20</span><span>AP 10</span><span>최대체력 +0</span></div>
+                    </article>
+
+                    <article class="surface-card weapon-card">
+                        <div class="weapon-head">
+                            <img class="weapon-image" src="https://ifh.cc/g/tCYzZj.png" alt="혹한의 심판">
+                            <div>
+                                <div class="weapon-rank rank-bplus">B+</div>
+                                <h3>혹한의 심판</h3>
+                            </div>
+                        </div>
+                        <p>차가운 서리 기운이 밖으로 표출되는 도끼. 잡는 순간 손까지 얼려버릴 기세다.</p>
+                        <div class="weapon-stats"><span>AD 40</span><span>AP 40</span><span>최대체력 -30</span></div>
+                    </article>
+
+                    <article class="surface-card weapon-card">
+                        <div class="weapon-head">
+                            <img class="weapon-image" src="https://ifh.cc/g/ysG1W0.png" alt="빙마참도">
+                            <div>
+                                <div class="weapon-rank rank-b">B</div>
+                                <h3>빙마참도</h3>
+                            </div>
+                        </div>
+                        <p>전방을 가를 때마다 공기의 수증기가 모두 얼어버릴 기세를 갖고 있는 검. 검집이 얼지 않게 조심해야 할 것만 같다.</p>
+                        <div class="weapon-stats"><span>AD 10</span><span>AP 20</span><span>최대체력 +10</span></div>
+                    </article>
+
+                    <article class="surface-card weapon-card">
+                        <div class="weapon-head">
+                            <img class="weapon-image" src="https://ifh.cc/g/Yn5TfF.png" alt="대마도사의 지팡이">
+                            <div>
+                                <div class="weapon-rank rank-bplus">B+</div>
+                                <h3>대마도사의 지팡이</h3>
+                            </div>
+                        </div>
+                        <p>대마도사가 쓰던 지팡이. 왠지 사용하면 강력한 마법이 나갈 것만 같다.</p>
+                        <div class="weapon-stats"><span>AD 15</span><span>AP 40</span><span>최대체력 +5</span></div>
+                    </article>
+
+                    <article class="surface-card weapon-card">
+                        <div class="weapon-head">
+                            <img class="weapon-image" src="https://ifh.cc/g/FnW4zB.png" alt="아마카제">
+                            <div>
+                                <div class="weapon-rank rank-a">A</div>
+                                <h3>아마카제(하늘바람)</h3>
+                            </div>
+                        </div>
+                        <p>칼날이 바람처럼 빠르게 움직이며 적을 스치듯 벤다. 하늘을 가르는 바람의 힘을 담아, 날렵하고 예리할 것만 같다.</p>
+                        <div class="weapon-stats"><span>AD 65</span><span>AP 10</span><span>최대체력 +10</span></div>
+                    </article>
+
+                    <article class="surface-card weapon-card">
+                        <div class="weapon-head">
+                            <img class="weapon-image" src="https://ifh.cc/g/nlKZYl.png" alt="데스브링어">
+                            <div>
+                                <div class="weapon-rank rank-a">A</div>
+                                <h3>데스브링어</h3>
+                            </div>
+                        </div>
+                        <p>잔혹한 피 냄새가 나는 검. 묵직한 이 검을 들면 무엇이든지 베어버릴 수 있을 것만 같다.</p>
+                        <div class="weapon-stats"><span>AD 50</span><span>AP 20</span><span>최대체력 +20</span></div>
+                    </article>
+
+                    <article class="surface-card weapon-card">
+                        <div class="weapon-head">
+                            <img class="weapon-image" src="https://ifh.cc/g/zKhxyo.png" alt="레바테인">
+                            <div>
+                                <div class="weapon-rank rank-a">A</div>
+                                <h3>레바테인</h3>
+                            </div>
+                        </div>
+                        <p>레바테인. 죽음의 문으로 끌어들일 수 있는 능력을 가지고 있다.</p>
+                        <div class="weapon-stats"><span>AD 15</span><span>AP 75</span><span>최대체력 -10</span></div>
+                    </article>
+
+                    <article class="surface-card weapon-card">
+                        <div class="weapon-head">
+                            <img class="weapon-image" src="https://ifh.cc/g/zKhxyo.png" alt="헤파이스토스의 망치">
+                            <div>
+                                <div class="weapon-rank rank-s">S</div>
+                                <h3>헤파이스토스의 망치</h3>
+                            </div>
+                        </div>
+                        <p>아만단티움을 벼려낼 수 있는 망치. 그에 걸맞는 무자비한 파괴력을 자랑한다.</p>
+                        <div class="weapon-stats"><span>AD 80</span><span>AP 35</span><span>최대체력 +0</span></div>
+                    </article>
+
+                    <article class="surface-card weapon-card">
+                        <div class="weapon-head">
+                            <img class="weapon-image" src="https://ifh.cc/g/wVMGJv.png" alt="미스틸테인">
+                            <div>
+                                <div class="weapon-rank rank-ss">SS</div>
+                                <h3>미스틸테인</h3>
+                            </div>
+                        </div>
+                        <p>미스틸테인. 신을 죽인 무기라고 불리우며 그에 걸맞는 외형과 파괴력을 자랑한다.</p>
+                        <div class="weapon-stats"><span>AD 25</span><span>AP 110</span><span>최대체력 -10</span></div>
+                    </article>
+
+                    <article class="surface-card weapon-card">
+                        <div class="weapon-head">
+                            <img class="weapon-image" src="https://ifh.cc/g/VmxpwW.png" alt="티르빙">
+                            <div>
+                                <div class="weapon-rank rank-ss">SS</div>
+                                <h3>티르빙</h3>
+                            </div>
+                        </div>
+                        <p>피를 부르는 검. 시전자는 상대방의 체력을 흡수하여 자신의 체력을 회복한다.</p>
+                        <div class="weapon-stats"><span>AD 55</span><span>AP 35</span><span>최대체력 +45</span></div>
+                    </article>
+
+                    <article class="surface-card weapon-card">
+                        <div class="weapon-head">
+                            <img class="weapon-image" src="https://ifh.cc/g/NWwB3p.png" alt="탁신문의 강철검">
+                            <div>
+                                <div class="weapon-rank rank-mythic">?</div>
+                                <h3>탁신문의 강철검</h3>
+                            </div>
+                        </div>
+                        <p>???</p>
+                        <div class="weapon-stats"><span>AD 300</span><span>AP 300</span><span>입수 난이도 불명</span></div>
+                    </article>
                 </div>
             </div>
-    </section>
+        </section>
+    </main>
 
     <footer>
         <p>© ATOM 3.0 project by 2025 KSS</p>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

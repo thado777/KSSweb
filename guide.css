@@ -1,137 +1,131 @@
-body {
-    color: white;
-    text-shadow: 1px 1px 5px black;
-    background: black;
-    font-family: 'Diphylleia', sans-serif;
+.guide-hero .hero-shell {
+    grid-template-columns: minmax(0, 1.4fr) minmax(280px, 0.8fr);
 }
 
-/* Background video */
-.video-background {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+.guide-kpis,
+.control-grid,
+.weapon-grid,
+.build-grid {
+    display: grid;
+    gap: 1rem;
+}
+
+.guide-kpis {
+    margin-top: 1.5rem;
+}
+
+.control-card h3,
+.weapon-card h3,
+.build-card h3 {
+    margin: 0 0 0.85rem;
+    font-family: "Diphylleia", serif;
+}
+
+.control-card p,
+.build-card p {
+    margin: 0;
+    color: var(--muted);
+    line-height: 1.8;
+}
+
+.weapon-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.weapon-card {
+    padding: 1.3rem;
+}
+
+.weapon-head {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.weapon-image {
+    width: 86px;
+    height: 86px;
+    border-radius: 22px;
     object-fit: cover;
-    z-index: -1;
+    border: 1px solid var(--border);
+    background: rgba(255, 255, 255, 0.03);
 }
 
-/* Navbar styles */
-.navbar-nav .nav-link {
-    color: white !important;
-    position: relative;
-    overflow: hidden;
-    transition: color 0.3s ease;
-}
-
-.navbar-nav .nav-link::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    height: 2px;
-    background-color: #ff5e62;
-    transform: scaleX(0);
-    transition: transform 0.3s ease;
-}
-
-.navbar-nav .nav-link:hover::after {
-    transform: scaleX(1);
-}
-
-.navbar-nav .nav-link:hover {
-    color: #ff5e62 !important;
-}
-
-/* Hero Section */
-.hero-section {
-    background: url('https://ifh.cc/g/XkPtas.jpg') no-repeat center center/cover;
-    height: 95vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+.weapon-rank {
+    display: inline-flex;
     align-items: center;
-    text-align: center;
-    position: relative;
-    margin-top: 56px;
-}
-
-
-.hero-section::before {
-    content: '';
-    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.893), transparent); /* background-image로 수정 */
-    position: absolute;
-    left: 0;
-    top: 0;
-    height: 100%;
-    width: 100%;
-    z-index: 2; /* 그라데이션이 오버레이 위에 오도록 z-index를 더 높게 설정 */
-}
-
-.hero-section h1,
-.hero-section p {
-    position: relative;
-    z-index: 4; /* 텍스트가 그라데이션과 오버레이 위에 오도록 설정 */
-}
-.hero-section2 {
-    
-    height: 95vh;
-    display: flex;
-    flex-direction: column;
     justify-content: center;
-    align-items: center;
-    text-align: center;
-    position: relative;
-    margin-top: 56px;
+    min-width: 2.2rem;
+    min-height: 2.2rem;
+    margin-bottom: 0.45rem;
+    border-radius: 999px;
+    font-weight: 800;
+    font-size: 0.84rem;
 }
 
-
-.hero-section2::before {
-    content: '';
-    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.893), transparent); /* background-image로 수정 */
-    position: absolute;
-    left: 0;
-    top: 0;
-    height: 100%;
-    width: 100%;
-    z-index: 2; /* 그라데이션이 오버레이 위에 오도록 z-index를 더 높게 설정 */
+.rank-c,
+.rank-b,
+.rank-bplus,
+.rank-a,
+.rank-s,
+.rank-ss,
+.rank-mythic {
+    border: 1px solid transparent;
 }
 
-
-.skill-card {
-    background-color: rgba(0,0,0,0.6);
-    border-radius: 10px;
-    padding: 1.5rem;
-    margin-bottom: 2rem;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+.rank-c {
+    background: rgba(152, 168, 184, 0.16);
+    border-color: rgba(152, 168, 184, 0.4);
 }
 
-.skill-card:hover {
-    transform: scale(1.02);
-    box-shadow: 0 0 20px rgba(255,255,255,0.3);
+.rank-b,
+.rank-bplus {
+    background: rgba(110, 174, 255, 0.16);
+    border-color: rgba(110, 174, 255, 0.4);
 }
 
-.skill-video {
-    border-radius: 10px;
+.rank-a {
+    background: rgba(180, 120, 255, 0.16);
+    border-color: rgba(180, 120, 255, 0.4);
+}
+
+.rank-s,
+.rank-ss,
+.rank-mythic {
+    background: rgba(216, 173, 105, 0.16);
+    border-color: rgba(216, 173, 105, 0.42);
+}
+
+.weapon-card p {
+    margin: 0;
+    color: var(--muted);
+    line-height: 1.75;
+}
+
+.weapon-stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
     margin-top: 1rem;
-    width: 100%;
-    height: auto;
 }
 
-.skill-icon {
-    width: 80px;
-    height: 80px;
+.weapon-stats span {
+    display: inline-flex;
+    align-items: center;
+    min-height: 1.9rem;
+    padding: 0.28rem 0.68rem;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    font-size: 0.82rem;
+    font-weight: 700;
 }
 
-.key-badge {
-    background-color: #ff5e62;
-    margin-left: 0.5rem;
-}
-
-footer {
-    text-align: center;
-    padding: 0.05rem;
-    color: #ccc;
-    background-color: rgba(0,0,0,0.6);
+@media (min-width: 768px) {
+    .guide-kpis,
+    .control-grid,
+    .build-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
 }

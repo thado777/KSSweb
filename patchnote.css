@@ -1,80 +1,67 @@
-html, body {
-    height: 100%;
+.patch-hero .hero-shell {
+    grid-template-columns: minmax(0, 1fr);
+}
+
+.patch-layout,
+.patch-grid,
+.roadmap-grid {
+    display: grid;
+    gap: 1rem;
+}
+
+.feature-patch,
+.patch-card,
+.contact-card {
+    padding: 1.4rem;
+}
+
+.feature-patch h3,
+.patch-card h3,
+.contact-card h3 {
+    margin: 0 0 0.7rem;
+    font-family: "Diphylleia", serif;
+}
+
+.version-line {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.version-line strong {
+    font-size: 1.45rem;
+}
+
+.patch-card p,
+.feature-patch p,
+.contact-card p {
     margin: 0;
-    padding-top: 80px;
-    color: white;
-    text-shadow: 1px 1px 5px black;
-    background: transparent;
-    overflow-x: hidden;
-    font-family: 'Diphylleia', sans-serif;
+    color: var(--muted);
+    line-height: 1.8;
 }
 
-.video-background {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: -1;
+.patch-list {
+    margin: 1rem 0 0;
+    padding-left: 1rem;
+    color: var(--muted);
 }
 
-.navbar {
-    background-color: rgba(0, 0, 0, 0.85);
+.patch-list li + li {
+    margin-top: 0.45rem;
 }
 
-/* ====== 스킬 설명 페이지 Navbar 스타일 적용 ====== */
-.navbar-nav .nav-link {
-    color: white !important;
-    position: relative;
-    overflow: hidden;
-    transition: color 0.3s ease;
-}
+@media (min-width: 992px) {
+    .patch-layout {
+        grid-template-columns: minmax(0, 1.55fr) minmax(280px, 0.8fr);
+    }
 
-.navbar-nav .nav-link::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    height: 2px;
-    background-color: #ff5e62;
-    transform: scaleX(0);
-    transition: transform 0.3s ease;
-}
+    .patch-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
 
-.navbar-nav .nav-link:hover::after {
-    transform: scaleX(1);
-}
-
-.navbar-nav .nav-link:hover {
-    color: #ff5e62 !important;
-}
-
-main {
-    padding-bottom: 100px;
-}
-
-.blog-card {
-    background-color: rgba(0, 0, 0, 0.5);
-    border-radius: 10px;
-    padding: 1.5rem;
-    margin: 1rem 0;
-}
-
-.extra-info {
-    background-color: rgba(0, 0, 0, 0.5);
-    border-radius: 10px;
-    padding: 1.5rem;
-    margin-top: 2rem;
-}
-
-footer {
-    text-align: center;
-    padding: 0.05rem;
-    color: #ccc;
-    background-color: rgba(0, 0, 0, 0.6);
-    position: relative;
-    bottom: 0;
-    width: 100%;
+    .roadmap-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
 }

@@ -1,124 +1,118 @@
-body {
-    color: white;
-    text-shadow: 1px 1px 5px black;
-    background: black;
-    font-family: 'Diphylleia', sans-serif;
+.story-hero .hero-shell {
+    grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.85fr);
 }
 
-/* Navbar styles */
-.navbar-nav .nav-link {
-    color: white !important;
-    position: relative;
-    overflow: hidden;
-    transition: color 0.3s ease;
+.story-quote {
+    margin: 0;
+    color: #f6d0b4;
+    font-family: "Diphylleia", serif;
+    font-size: 1.2rem;
+    line-height: 1.75;
 }
 
-.navbar-nav .nav-link::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    height: 2px;
-    background-color: #ff5e62;
-    transform: scaleX(0);
-    transition: transform 0.3s ease;
+.story-signpost {
+    display: grid;
+    gap: 0.8rem;
+    margin-top: 1.25rem;
 }
 
-.navbar-nav .nav-link:hover::after {
-    transform: scaleX(1);
+.story-signpost div {
+    padding: 0.9rem 1rem;
+    border-radius: 18px;
+    border: 1px solid var(--border);
+    background: var(--panel-soft);
 }
 
-.navbar-nav .nav-link:hover {
-    color: #ff5e62 !important;
+.story-signpost strong {
+    display: block;
+    margin-bottom: 0.2rem;
 }
 
-/* Background video */
-.video-background {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: -1;
+.story-flow {
+    display: grid;
+    gap: 1.25rem;
+    max-width: 920px;
+    margin: 0 auto;
 }
 
-/* Hero Section */
-.hero-section {
-    background: url('https://ifh.cc/g/XkPtas.jpg') no-repeat center center/cover;
-    height: 95vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+.chapter-card {
+    display: grid;
+    gap: 1rem;
+    padding: 1.85rem;
+}
+
+.chapter-marker {
+    display: inline-flex;
     align-items: center;
+    justify-content: center;
+    width: 3.3rem;
+    height: 3.3rem;
+    border-radius: 18px;
+    background: rgba(255, 94, 98, 0.12);
+    border: 1px solid rgba(255, 94, 98, 0.22);
+    color: #ffd9da;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+}
+
+.chapter-copy h3 {
+    margin: 0 0 1rem;
+    font-family: "Diphylleia", serif;
+    font-size: 1.7rem;
+    line-height: 1.35;
+}
+
+.chapter-copy p {
+    margin: 0;
+    color: var(--muted);
+    max-width: 68ch;
+    font-size: 1.04rem;
+    line-height: 2;
+}
+
+.chapter-copy p + p {
+    margin-top: 1.15rem;
+}
+
+.chapter-copy strong {
+    color: var(--text);
+}
+
+.chapter-copy em {
+    color: #f3d4bf;
+}
+
+.story-ending {
+    margin-top: 1rem;
     text-align: center;
-    position: relative;
-    margin-top: 56px;
 }
 
-
-.hero-section::before {
-    content: '';
-    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.893), transparent); /* background-image로 수정 */
-    position: absolute;
-    left: 0;
-    top: 0;
-    height: 100%;
-    width: 100%;
-    z-index: 2; /* 그라데이션이 오버레이 위에 오도록 z-index를 더 높게 설정 */
-}
-
-.hero-section h1,
-.hero-section p {
-    position: relative;
-    z-index: 4; /* 텍스트가 그라데이션과 오버레이 위에 오도록 설정 */
-}
-
-
-
-
-/* Story content */
-.story-container {
-    background-color: rgba(0,0,0,0.8);
-    border-radius: 15px;
-    padding: 3rem;
-    margin: 2rem auto;
-    max-width: 1100px;
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255,255,255,0.1);
-}
-
-.story-paragraph {
-    background-color: rgba(255,255,255,0.05);
-    border-radius: 10px;
-    padding: 2rem;
-    margin-bottom: 2rem;
+.story-ending p {
+    margin: 0;
+    color: #f3d4bf;
+    font-family: "Diphylleia", serif;
+    font-size: 1.3rem;
     line-height: 1.8;
-    font-size: 1.1rem;
-    border-left: 4px solid #ff5e62;
-    transition: transform 0.2s ease, box-shadow 0.3s ease;
 }
 
-.story-paragraph:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(255,94,98,0.2);
+@media (min-width: 992px) {
+    .chapter-card {
+        grid-template-columns: 72px minmax(0, 1fr);
+        align-items: start;
+    }
 }
 
-.story-title {
-    text-align: center;
-    color: #ff5e62;
-    font-size: 2.5rem;
-    font-weight: bold;
-    margin-bottom: 2rem;
-    text-shadow: 2px 2px 10px rgba(255,94,98,0.5);
-}
+@media (max-width: 767.98px) {
+    .chapter-card {
+        padding: 1.35rem;
+    }
 
-/* Footer styles */
-footer {
-    text-align: center;
-    padding: 1rem;
-    color: #ccc;
-    background-color: rgba(0,0,0,0.6);
-    margin-top: 2rem;
+    .chapter-copy h3 {
+        font-size: 1.45rem;
+    }
+
+    .chapter-copy p {
+        font-size: 0.98rem;
+        line-height: 1.9;
+    }
 }
